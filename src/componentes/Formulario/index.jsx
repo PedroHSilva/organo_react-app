@@ -5,9 +5,9 @@ const Formulario = () =>
     <section className="formulario">
         <form>
             <h2>Preencha os dados para criar o perfil do colaborador</h2>
-            <CampoTexto label="Nome" name="nome" />
-            <CampoTexto label="Cargo" name="cargo" />
-            <CampoTexto label="Imagem" name="imagem" />
+            <CampoTexto label="Nome" name="nome" placeholder="Digite se nome" />
+            <CampoTexto label="Cargo" name="cargo" placeholder="Digite seu cargo" />
+            <CampoTexto label="Imagem" name="imagem" placeholder="Escolha sua imagem" />
         </form>
     </section>
 
