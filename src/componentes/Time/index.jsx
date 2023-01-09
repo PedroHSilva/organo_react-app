@@ -3,8 +3,8 @@ import './index.css'
 const Time = (props) => {
 
     return (
-        <section className='time'>
-            <h3>{ props.titulo }</h3>
+        <section className='time' backgroundColor={ props.corSegundaria }>
+            <h3>{ props.nome }</h3>
         </section>
     )
 }
