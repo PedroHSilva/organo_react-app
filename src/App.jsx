@@ -5,40 +5,40 @@ import Time from './componentes/Time';
 
 const App = () => {
 
+    const [colaboradores, setColaboradores] = useState([])
+
     const times = [
         {
             nome: 'Frontend',
             corPrimaria: '#57c278',
-            corSegundaria: '#d9f7e9'
+            corSecundaria: '#d9f7e9'
         },
         {
             nome: 'Backend',
             corPrimaria: '#82cffa',
-            corSegundaria: '#e8f8ff'
+            corSecundaria: '#e8f8ff'
         },
         {
             nome: 'Devops',
             corPrimaria: '#a6d157',
-            corSegundaria: '#f0f8e2'
+            corSecundaria: '#f0f8e2'
         },
         {
             nome: 'UX Design',
             corPrimaria: '#e06b69',
-            corSegundaria: '#fde7e8'
+            corSecundaria: '#fde7e8'
         },
         {
             nome: 'Marketing',
             corPrimaria: '#db6ebf',
-            corSegundaria: '#fae9f5'
+            corSecundaria: '#fae9f5'
         },
         {
             nome: 'Gestão',
             corPrimaria: '#ffba05',
-            corSegundaria: '#fff5d9'
+            corSecundaria: '#fff5d9'
         },
     ]
-
-    const [colaboradores, setColaboradores] = useState([])
 
     const aoNovoColaboradorAdd = (colaborador) => {
         console.log(colaboradores)
@@ -48,8 +48,12 @@ const App = () => {
     return (
         <div className="App">
             <Banner/>
-            <Formulario aoColaboradorCadastrado={ colaborador => aoNovoColaboradorAdd(colaborador) } />
-            {times.map(time => <Time nome={ time.nome } corPrimaria={ time.corPrimaria } corSegundaria={ time.corSegundaria }/>)}            
+            <Formulario times={ times.map(time => time.nome) } aoColaboradorCadastrado={ colaborador => aoNovoColaboradorAdd(colaborador) } />
+            { times.map(time => <Time 
+                key={ time.nome } 
+                time={ time }
+                colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+            />) }            
         </div>
     );
 }

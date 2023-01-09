@@ -16,16 +16,11 @@ const Formulario = (props) => {
         props.aoColaboradorCadastrado({
             nome, cargo, imagem, time
         })
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('Frontend')
     }
-
-    const times = [
-        'Frontend',
-        'Backend',
-        'Devops',
-        'UX Design',
-        'Marketing',
-        'Gestão'
-    ]
     
     return (
     <section className="formulario">
@@ -34,7 +29,7 @@ const Formulario = (props) => {
             <CampoTexto valor={nome} aoAlterado={valor => setNome(valor)} obrigatorio={true} label="Nome" name="nome" placeholder="Digite se nome" />
             <CampoTexto valor={cargo} aoAlterado={valor => setCargo(valor)} obrigatorio={true} label="Cargo" name="cargo" placeholder="Digite seu cargo" />
             <CampoTexto valor={imagem} aoAlterado={valor => setImagem(valor)} obrigatorio={true} label="Imagem" name="imagem" placeholder="Escolha sua imagem" />
-            <ListaSuspensa valor={time} aoAlterado={valor => setTime(valor)} obrigatorio={true} itens={times} label ="Time"></ListaSuspensa>
+            <ListaSuspensa valor={time} aoAlterado={valor => setTime(valor)} obrigatorio={true} itens={props.times} label ="Time"></ListaSuspensa>
             <Botao>Criar Perfil {time}</Botao>
         </form>
     </section>
