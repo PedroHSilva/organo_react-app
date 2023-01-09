@@ -8,7 +8,7 @@ const App = () => {
 
     const [colaboradores, setColaboradores] = useState([])
 
-    const times = [
+    const [times, setTimes] = useState([
         {
             nome: 'Frontend',
             corPrimaria: '#57c278',
@@ -39,11 +39,23 @@ const App = () => {
             corPrimaria: '#ffba05',
             corSecundaria: '#fff5d9'
         },
-    ]
+    ])
 
     const aoNovoColaboradorAdd = (colaborador) => {
-        debugger
         setColaboradores([...colaboradores, colaborador])
+    }
+
+    const deletarColaborador = () => {
+        console.log("Deletando...")
+    }
+
+    const mudarCorDoTime = (cor, nome) => {
+        setTimes(times.map(time => {
+            if (time.nome === nome) {
+                time.corSecundaria = cor
+            }
+            return time
+        }))
     }
 
     return (
@@ -51,9 +63,11 @@ const App = () => {
             <Banner/>
             <Formulario times={ times.map(time => time.nome) } aoColaboradorCadastrado={ colaborador => aoNovoColaboradorAdd(colaborador) } />
             { times.map(time => <Time 
+                mudarCor={mudarCorDoTime}
                 key={ time.nome } 
                 time={ time }
                 colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+                aoDeletar={deletarColaborador}
             />) } 
             <Rodape/>           
         </div>
