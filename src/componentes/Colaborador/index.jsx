@@ -3,7 +3,7 @@ import './index.css'
 const Colaborador = (props) => {
     return (
         <div className='colaborador'>
-            <div className='cabecalho'>
+            <div className='cabecalho' style={ { backgroundColor:props.corPrimaria } }>
                 <img src={ props.imagem } alt="Pedro Silva" />
             </div>
             <div className='rodape'>
