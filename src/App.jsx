@@ -59,10 +59,18 @@ const App = () => {
         }))
     }
 
+    const cadastrarTime = (novoTime) => {
+        setTimes([...times,{ ...novoTime, id:uuidv4() }])
+    }
+
+
     return (
         <div className="App">
             <Banner/>
-            <Formulario times={ times.map(time => time.nome) } aoColaboradorCadastrado={ colaborador => aoNovoColaboradorAdd(colaborador) } />
+            <Formulario 
+            cadastrarTime={cadastrarTime}
+                times={ times.map(time => time.nome) } 
+                aoColaboradorCadastrado={ colaborador => aoNovoColaboradorAdd(colaborador) } />
             { times.map(time => <Time 
                 mudarCor={mudarCorDoTime}
                 key={ time.nome } 
