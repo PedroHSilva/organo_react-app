@@ -3,6 +3,7 @@ import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Rodape from './componentes/Rodape';
 import Time from './componentes/Time';
+import { v4 as uuidv4 } from 'uuid'
 
 const App = () => {
 
@@ -10,34 +11,34 @@ const App = () => {
 
     const [times, setTimes] = useState([
         {
+            id: uuidv4(),
             nome: 'Frontend',
-            corPrimaria: '#57c278',
-            corSecundaria: '#d9f7e9'
+            cor: '#57c278',
         },
         {
+            id: uuidv4(),
             nome: 'Backend',
-            corPrimaria: '#82cffa',
-            corSecundaria: '#e8f8ff'
+            cor: '#82cffa',
         },
         {
+            id: uuidv4(),
             nome: 'Devops',
-            corPrimaria: '#a6d157',
-            corSecundaria: '#f0f8e2'
+            cor: '#a6d157',
         },
         {
+            id: uuidv4(),
             nome: 'UX Design',
-            corPrimaria: '#e06b69',
-            corSecundaria: '#fde7e8'
+            cor: '#e06b69',
         },
         {
+            id: uuidv4(),
             nome: 'Marketing',
-            corPrimaria: '#db6ebf',
-            corSecundaria: '#fae9f5'
+            cor: '#db6ebf',
         },
         {
+            id: uuidv4(),
             nome: 'Gestão',
-            corPrimaria: '#ffba05',
-            corSecundaria: '#fff5d9'
+            cor: '#ffba05',
         },
     ])
 
@@ -52,7 +53,7 @@ const App = () => {
     const mudarCorDoTime = (cor, nome) => {
         setTimes(times.map(time => {
             if (time.nome === nome) {
-                time.corSecundaria = cor
+                time.cor = cor
             }
             return time
         }))
