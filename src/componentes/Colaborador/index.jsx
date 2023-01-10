@@ -11,6 +11,9 @@ const Colaborador = (props) => {
             <div className='rodape'>
                 <h4>{ props.nome }</h4>
                 <h5>{ props.cargo }</h5>
+                <div className='favoritar'>
+                    {props.favorito ? 'favorito' : 'Não favorito'}
+                </div>
             </div>
         </div>
     )

@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import './index.css'
-const CampoTexto = (props) => {
+
+const Campo = (props) => {
 
     const aoDigitado = (event) => {
         props.aoAlterado(event.target.value)
     }
 
     return (
-        <div className='campo-texto'>
+        <div className={`campo campo-${props.type}`}>
             <label>{ props.label }</label>
             <input 
                 value={ props.valor }
                 onChange={ aoDigitado }
-                type="text" 
+                type={props.type} 
                 placeholder={ props.placeholder } 
                 name={ props.name } 
                 required={ props.obrigatorio } />
@@ -20,4 +21,4 @@ const CampoTexto = (props) => {
     )
 }
 
-export default CampoTexto
+export default Campo
