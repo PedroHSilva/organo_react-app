@@ -63,7 +63,6 @@ const App = () => {
         setTimes([...times,{ ...novoTime, id:uuidv4() }])
     }
 
-
     return (
         <div className="App">
             <Banner/>
