@@ -6,7 +6,6 @@ interface ColaboradorProps {
     imagem: string,
     cargo: string,
     corPrimaria: string,
-    favorito: boolean,
     aoDeletar: (nome: string) => void
 
 }
@@ -22,7 +21,7 @@ const Colaborador = (props:ColaboradorProps) => {
                 <h4>{props.nome}</h4>
                 <h5>{props.cargo}</h5>
                 <div className='favoritar'>
-                    {props.favorito ? 'favorito' : 'Não favorito'}
+                    Não favorito
                 </div>
             </div>
         </div>
