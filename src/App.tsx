@@ -3,11 +3,13 @@ import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Rodape from './componentes/Rodape';
 import Time from './componentes/Time';
-import { v4 as uuidv4 } from 'uuid'
+import {v4 as uuidv4 } from 'uuid'
+import { IColaborador } from './compartilhado/interfaces/IColaborador';
+import { ITime } from './compartilhado/interfaces/ITime';
 
 const App = () => {
 
-    const [colaboradores, setColaboradores] = useState([])
+    const [colaboradores, setColaboradores] = useState<IColaborador[]>([])
 
     const [times, setTimes] = useState([
         {
@@ -42,15 +44,15 @@ const App = () => {
         },
     ])
 
-    const aoNovoColaboradorAdd = (colaborador) => {
+    const aoNovoColaboradorAdd = (colaborador: IColaborador) => {
         setColaboradores([...colaboradores, colaborador])
     }
 
-    const deletarColaborador = (nome) => {
-        setColaboradores(colaboradores.filter(colaborador => colaborador.nome !== nome))
+    const deletarColaborador = (nome:string) => {
+        setColaboradores(colaboradores.filter((colaborador:IColaborador) => colaborador.nome !== nome))
     }
 
-    const mudarCorDoTime = (cor, nome) => {
+    const mudarCorDoTime = (cor:string, nome:string) => {
         setTimes(times.map(time => {
             if (time.nome === nome) {
                 time.cor = cor
@@ -59,7 +61,7 @@ const App = () => {
         }))
     }
 
-    const cadastrarTime = (novoTime) => {
+    const cadastrarTime = (novoTime:ITime) => {
         setTimes([...times,{ ...novoTime, id:uuidv4() }])
     }
 
@@ -74,7 +76,7 @@ const App = () => {
                 mudarCor={mudarCorDoTime}
                 key={ time.nome } 
                 time={ time }
-                colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+                colaboradores={colaboradores.filter((colaborador:IColaborador) => colaborador.time === time.nome)}
                 aoDeletar={deletarColaborador}
             />) } 
             <Rodape/>           

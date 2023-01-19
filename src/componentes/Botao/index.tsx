@@ -4,7 +4,7 @@ import React from 'react'
 import './index.css'
 
 interface BotaoProps {
-    children: ReactElement
+    children: ReactElement | string
 }
 const Botao = (props: BotaoProps) => {
     return (

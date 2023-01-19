@@ -1,21 +1,20 @@
 import hexToRgba from 'hex-to-rgba';
 import { IColaborador } from '../../compartilhado/interfaces/IColaborador';
+import { ITime } from '../../compartilhado/interfaces/ITime';
 import Colaborador from '../Colaborador'
 import './index.css'
 
 interface TimeProps {
-    cor: string,
-    nome: string,
     colaboradores: IColaborador[],
-    time: { nome: string, cor: string },
-    mudarCor: (value: string, nome: string) => void,
-    aoDeletar: () => void
+    time: ITime,
+    mudarCor: (cor: string, nome: string) => void,
+    aoDeletar: (nome:string) => void
 }
 
 const Time = (props: TimeProps) => {
 
     return (
-        props.colaboradores.length > 0 &&
+        props.colaboradores.length > 0 ?
         <section className='time' style={{ backgroundColor: hexToRgba(props.time.cor, 0.3) }}>
             <input onChange={event => props.mudarCor(event.target.value, props.time.nome)} type="color" className='input-color' value={props.time.cor} />
             <h3 style={{ borderColor: props.time.cor }}>{props.time.nome} </h3>
@@ -34,7 +33,7 @@ const Time = (props: TimeProps) => {
                     )
                 })}
             </div>
-        </section>
+        </section> : <></>
     )
 }
 
