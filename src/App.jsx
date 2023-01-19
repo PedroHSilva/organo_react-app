@@ -65,7 +65,7 @@ const App = () => {
 
     return (
         <div className="App">
-            <Banner/>
+            <Banner enderecoImagem="\imagens\banner.png" textoAlternativo="Banner" />
             <Formulario 
             cadastrarTime={cadastrarTime}
                 times={ times.map(time => time.nome) } 
